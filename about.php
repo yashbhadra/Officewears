@@ -150,7 +150,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         </div>
         <div class="col-md-6 px-0">
           <div class="img-box">
-            <img src="images/about-img.jpg" alt="">
+            <img src="images/cover.png" alt="">
           </div>
         </div>
       </div>

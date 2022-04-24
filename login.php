@@ -35,7 +35,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate credentials
     if(empty($username_err) && empty($password_err)){
         // Prepare a select statement
-        $sql = "SELECT Customer_id, Customer_name, User_password FROM Customer WHERE Username = ?";
+        $sql = "SELECT User_id, User_name, User_password, User_role FROM User WHERE Username = ?";
         
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
@@ -52,7 +52,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 // Check if username exists, if yes then verify password
                 if(mysqli_stmt_num_rows($stmt) == 1){                    
                     // Bind result variables
-                    mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password);
+                    mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password, $user_role);
                     if(mysqli_stmt_fetch($stmt)){
                         if(password_verify($password, $hashed_password)){
                             // Password is correct, so start a new session
@@ -61,7 +61,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
-                            $_SESSION["username"] = $username;                            
+                            $_SESSION["username"] = $username;
+                            $_SESSION["user_role"] = $user_role;
                             
                             // Redirect user to welcome page
                             header("location: index.php");
@@ -83,8 +84,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
     }
     
+    
+
+
     // Close connection
     mysqli_close($link);
+
+
+
+
 }
 ?>
  
@@ -94,14 +102,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta charset="UTF-8">
     <title>Login</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 360px; padding: 20px; }
+        body{ font: 14px sans-serif; background-color:white;}
+        .wrapper{ max-width: 1170px; width: 660px; margin:30px auto; padding: 10px; background-color: #f2f2f2;}
+        .navbar{background-color:#3a4468}
     </style>
 </head>
 <body>
-    <div class="wrapper">
-        <h2>Login</h2>
+<div class="navbar">
+
+<a class="navbar-brand text-center text-light" href="#">Officewears</a>
+
+
+</div>
+    <div class="wrapper rounded">
+    <h1 class='text-center text-dark muted'>Login</h1>
         <p>Please fill in your credentials to login.</p>
 
         <?php 
@@ -112,12 +128,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group">
-                <label>Username</label>
+            <label><i class="fa fa-user"></i> Username</label>
                 <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
                 <span class="invalid-feedback"><?php echo $username_err; ?></span>
             </div>    
             <div class="form-group">
-                <label>Password</label>
+            <label><i class="fa fa-key"></i> Password</label>
                 <input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
                 <span class="invalid-feedback"><?php echo $password_err; ?></span>
             </div>

@@ -63,12 +63,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                 </span>
               </a>
             </div>
-            <from class="search_form">
-              <input type="text" class="form-control" placeholder="Search here...">
-              <button class="" type="submit">
-                <i class="fa fa-search" aria-hidden="true"></i>
-              </button>
-            </from>
+            
             <div class="user_option_box">
               <a href="logout.php" class="account-link"> 
                 <i class="fa fa-user" aria-hidden="true"></i>
@@ -76,12 +71,13 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                   Sign out
                 </span>
               </a>
-              <a href="" class="cart-link">
-                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                <span>
-                  Cart
-                </span>
-              </a>
+              <?php
+              if($_SESSION['user_role']=='1'){
+                
+                echo "<a href='editusers.php' class='account-link'> <i class='fa fa-user' aria-hidden='true'></i><span>Edit Users</span></a>";
+
+              }
+              ?>
             </div>
           </div>
 
@@ -231,7 +227,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
           <div class="box">
             <div class="img-box">
               <img src="images/man-suit.jpeg" alt="">
-              <a href="" class="add_cart_btn">
+              <a href="product.php" class="add_cart_btn">
                 <span>
                   Add To Cart
                 </span>
@@ -243,7 +239,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
               </h5>
               <div class="product_info">
                 <h5>
-                  <span>$</span> 300
+                  <span>$</span> 200
                 </h5>
                 <div class="star_container">
                   <i class="fa fa-star" aria-hidden="true"></i>
@@ -260,7 +256,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
           <div class="box">
             <div class="img-box">
               <img src="images/woman-suit.jpeg" alt="">
-              <a href="" class="add_cart_btn">
+              <a href="product.php" class="add_cart_btn">
                 <span>
                   Add To Cart
                 </span>
@@ -272,7 +268,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
               </h5>
               <div class="product_info">
                 <h5>
-                  <span>$</span> 300
+                  <span>$</span> 200
                 </h5>
                 <div class="star_container">
                   <i class="fa fa-star" aria-hidden="true"></i>
@@ -318,7 +314,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         </div>
         <div class="col-md-6 px-0">
           <div class="img-box">
-            <img src="images/about-img.jpg" alt="">
+            <img src="images/cover.png" alt="">
           </div>
         </div>
       </div>

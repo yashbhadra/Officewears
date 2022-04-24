@@ -41,7 +41,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
   <link href="css/responsive.css" rel="stylesheet" />
 
 </head>
-
+<style>
+  .container{padding:20px;}
+</style>
 <body class="sub_page">
 
   <div class="hero_area">
@@ -51,36 +53,21 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <div class="container-fluid">
           <div class="top_nav_container">
             <div class="contact_nav">
-              <a href="">
-                <i class="fa fa-phone" aria-hidden="true"></i>
-                <span>
-                  Call : +01 123455678990
-                </span>
-              </a>
-              <a href="">
-                <i class="fa fa-envelope" aria-hidden="true"></i>
-                <span>
-                  Email : demo@gmail.com
-                </span>
-              </a>
+              
             </div>
-            <from class="search_form">
-              <input type="text" class="form-control" placeholder="Search here...">
-              <button class="" type="submit">
-                <i class="fa fa-search" aria-hidden="true"></i>
-              </button>
-            </from>
+            
+            
             <div class="user_option_box">
             <a href="logout.php" class="account-link"> 
-                <i class="fa fa-user" aria-hidden="true"></i>
+                
                 <span>
-                  Sign out
+                  
                 </span>
               </a>
               <a href="" class="cart-link">
-                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                
                 <span>
-                  Cart
+                  
                 </span>
               </a>
             </div>
@@ -142,21 +129,21 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <!-- Main -->
 <div class="container">
    <div class="row">
-     <div class="col col-md-4">
-       <div class="card" style="width: 20rem;">
- <img class="card-img-top" src="./images/man-suit.jpeg" alt="Card image cap">
- <div class="card-block">
-   <h4 class="card-title">Men's Suit</h4>
-   <p class="card-text">Price: $200</p>
-   <a href="#" data-name="Suit-Male" data-price="200" class="add-to-cart btn btn-primary">Add to cart</a>
- </div>
-</div>
+     <div class="col col-md-6">
+       <div class="card">
+          <img class="card-img-top" src="./images/male.jpeg" alt="Card image cap">
+          <div class="card-body">
+              <h4 class="card-title">1. Suit </h4>
+              <p class="card-text">Price: $200</p>
+              <a href="#" data-name="Suit-Male" data-price="200" class="add-to-cart btn btn-primary">Add to cart</a>
+          </div>
+        </div>
      </div>
-     <div class="col col-md-4">
-       <div class="card" style="width: 20rem;">
- <img class="card-img-top" src="./images/woman-suit.jpeg" alt="Card image cap">
- <div class="card-block">
-   <h4 class="card-title">Women's Suit</h4>
+     <div class="col col-md-6">
+       <div class="card">
+ <img class="card-img-top" src="./images/female.png" alt="Card image cap">
+ <div class="card-body">
+   <h4 class="card-title">2. Suit </h4>
    <p class="card-text">Price: $200</p>
    <a href="#" data-name="Suit-Female" data-price="150" class="add-to-cart btn btn-primary">Add to cart</a>
  </div>

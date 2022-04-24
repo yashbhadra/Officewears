@@ -16,7 +16,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $username_err = "Username can only contain letters, numbers, and underscores.";
     } else{
         // Prepare a select statement
-        $sql = "SELECT Customer_id FROM Customer WHERE Username = ?";
+        $sql = "SELECT User_id FROM User WHERE Username = ?";
         
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
@@ -66,6 +66,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $address=$_POST["address"];
     $email=$_POST["email"];
     $mobile=$_POST["mobile"];
+    $user_role= "2";
 
     //TODO: Validate email and mobile variables
     
@@ -74,11 +75,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
         
         // Prepare an insert statement
-        $sql = "INSERT INTO Customer (Username, User_password,Customer_name,Customer_address,Email,Phone_no) VALUES (?,?,?,?,?,?)";
+        $sql = "INSERT INTO User (Username, User_password,User_name,User_address,Email,Phone_no,User_role) VALUES (?,?,?,?,?,?,?)";
         
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ssssss", $param_username, $param_password, $name, $address, $email, $mobile);
+            mysqli_stmt_bind_param($stmt, "sssssss", $param_username, $param_password, $name, $address, $email, $mobile, $user_role);
             
             // Set parameters
             $param_username = $username;
@@ -87,6 +88,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $param_address = $address;
             $param_email = $email;
             $param_mobile = $mobile;
+            $param_role = $user_role;
 
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
@@ -112,52 +114,61 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta charset="UTF-8">
     <title>Sign Up</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 360px; padding: 20px; }
+        body{ font: 14px sans-serif; background-color:white;}
+        .wrapper{ max-width: 1170px; width: 660px; margin:30px auto; padding: 10px; background-color: #f2f2f2;}
+        .navbar{background-color:#3a4468}
+        
     </style>
 </head>
 <body>
-    <div class="wrapper">
-        <h2>Sign Up</h2>
+    <div class="navbar navbar-expand-lg custom_nav-container">
+
+    <a class="navbar-brand text-center text-light" href="#">Officewears</a>
+
+
+    </div>
+    <div class="wrapper rounded">
+        <h1 class='text-center text-dark'>Sign Up</h1>
         <p>Please fill this form to create an account.</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <div class="form-group">
-                <label>Username</label>
-                <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
+            <div class="form-group rounded">
+            <label><i class="fa fa-user"></i> Username</label>
+                <input type="text" name="username" required class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
                 <span class="invalid-feedback"><?php echo $username_err; ?></span>
             </div>    
-            <div class="form-group">
-                <label>Password</label>
-                <input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>">
+            <div class="form-group rounded">
+            <label><i class="fa fa-key"></i> Password </label>
+                <input type="password" name="password" required class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>">
                 <span class="invalid-feedback"><?php echo $password_err; ?></span>
             </div>
-            <div class="form-group">
-                <label>Confirm Password</label>
-                <input type="password" name="confirm_password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
+            <div class="form-group rounded">
+            <label><i class="fa fa-key"></i> Confirm Password </label>
+                <input type="password" name="confirm_password" required class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
                 <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
             </div>
-            <div class="form-group">
-                <label>Name</label>
-                <input type="text" name="name" class="form-control">
+            <div class="form-group rounded">
+            <label><i class="fa fa-user"></i> Name </label>
+                <input type="text" name="name" required class="form-control">
                 <span class="invalid-feedback"></span>
             </div>    
-            <div class="form-group">
-                <label>Address</label>
-                <input type="text" name="address" class="form-control">
+            <div class="form-group rounded">
+            <label><i class="fa fa-address-card"></i> Address </label>
+                <input type="text" name="address" required class="form-control">
                 <span class="invalid-feedback"></span>
             </div>    
-            <div class="form-group">
-                <label>Email</label>
-                <input type="text" name="email" class="form-control">
+            <div class="form-group rounded">
+                <label><i class="fa fa-envelope"></i> Email </label>
+                <input type="text" pattern='^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$' required name="email" class="form-control">
                 <span class="invalid-feedback"></span>
             </div>    
-            <div class="form-group">
-                <label>Mobile</label>
-                <input type="text" name="mobile" class="form-control">
+            <div class="form-group rounded">
+            <label><i class="fa fa-phone"></i> Phone </label>
+                <div><input type="text" name="mobile" required pattern='[4][0-9]{8}' class="form-control"></div>
                 <span class="invalid-feedback"></span>
             </div>     
-            <div class="form-group">
+            <div class="form-group rounded">
                 <input type="submit" class="btn btn-primary" value="Submit">
                 <input type="reset" class="btn btn-secondary ml-2" value="Reset">
             </div>
