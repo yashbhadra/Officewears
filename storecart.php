@@ -14,7 +14,7 @@
 
         }
 
-        $sql="INSERT INTO Orders (Customer_id, Amount) VALUES ($Customer_id,'$total_amount');";
+        $sql="INSERT INTO Orders (User_id, Amount) VALUES ($Customer_id,'$total_amount');";
         $result=mysqli_query($link,$sql);
         $order_id = 0;
         if($result){

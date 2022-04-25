@@ -35,7 +35,7 @@ if((!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) && $_SESSIO
             <tr><th style='width:25%'>Name</th><th>Email</th><th>Phone</th><th>Address</th><th>Action</th></tr>
         <?php
         
-        $sql = "SELECT * FROM User;";
+        $sql = "SELECT * FROM User where User_role!=1;";
         $result=mysqli_query($link, $sql);
         $count=mysqli_num_rows($result);
         
@@ -58,8 +58,8 @@ if((!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) && $_SESSIO
             <td><?= $email?></td>
             <td><?= $phone?></td>
             <td><?= $address?></td>
-            <td><button class='delete' id='del_<?= $id ?>'>Delete</button>
-                <button class='edit' id='edit_<?= $id ?>'>Edit</button>
+            <td><button id="<?php echo $id?>" onClick="deleteFunction(this.id)">Delete</button>
+                <button id="<?php echo $id?>" onClick="editFunction(this.id)">Edit</button>
             </td>
         </tr>
 
@@ -72,41 +72,17 @@ if((!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) && $_SESSIO
 
     
     </div>
-    <script>
-        $(document).ready(function{
-            
-            $(".delete").on("click",function(){
-                var element = this;
-                var id = this.id;
-                
-                var final_id = id.split('_');
-                var deleteid = final_id[1];
-        
-                $.ajax({
-                    url: 'deleterecord.php',
-                    type: 'post',
-                    data: {id:deleteid},
-                    success: function(response){
-                        if(response == 1){
-                            $(element).closest('tr').css('background','tomato');
-                            $(element).closest('tr').remove();
-                        }
-                        else{
-                            alert('Invalid ID');
-                        }
-        
-                    }
-                });
-        
-            });
-            
-        
-        });
+ <script>     
+function deleteFunction(id){
 
-
-                
-
-    </script>
+   $.post('./deleterecord.php',{data:id},function(response){
+       location.reload();
+   });
+}
+function editFunction(id){
+    window.location.href = "http://localhost/Officewears/modifyuser.php?id="+id;
+}
+</script>
         
 </body>
 </html>
