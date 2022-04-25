@@ -31,6 +31,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
   <!-- fonts style -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet"> <!-- range slider -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <!-- font awesome style -->
   <link href="css/font-awesome.min.css" rel="stylesheet" />
@@ -58,16 +60,13 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             
             
             <div class="user_option_box">
-            <a href="logout.php" class="account-link"> 
+            
+            <a href="logout.php" class="account-link">
+                <!--<i class="fa fa-user" aria-hidden="true"></i>-->
                 
                 <span>
                   
-                </span>
-              </a>
-              <a href="" class="cart-link">
-                
-                <span>
-                  
+
                 </span>
               </a>
             </div>
@@ -105,6 +104,10 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                 <li class="nav-item">
                   <a class="nav-link" href="testimonial.php">Testimonial</a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="logout.php">Sign Out</a>
+                </li>
+                
               </ul>
             </div>
           </nav>
@@ -121,7 +124,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <nav class="navbar navbar-inverse bg-inverse fixed-top bg-faded">
    <div class="row">
        <div class="col">
-         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cart">Cart (<span class="total-count"></span>)</button><button class="clear-cart btn btn-danger">Clear Cart</button></div>
+         <button type="button" class="btn btn-light txt-dark p-2" data-toggle="modal" data-target="#cart">Cart (<span class="total-count"></span>)</button><button class="clear-cart btn btn-light txt-dark p-2">Clear Cart</button></div>
    </div>
 </nav>
 
@@ -199,16 +202,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             </h5>
             <p>
               <i class="fa fa-map-marker" aria-hidden="true"></i>
-              Address
+              RMIT
             </p>
-            <p>
-              <i class="fa fa-phone" aria-hidden="true"></i>
-              +01 1234567890
-            </p>
-            <p>
-              <i class="fa fa-envelope" aria-hidden="true"></i>
-              demo@gmail.com
-            </p>
+            
           </div>
         </div>
         <div class="col-md-3">
@@ -217,7 +213,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
               Information
             </h5>
             <p>
-              Eligendi sunt, provident, debitis nemo, facilis cupiditate velit libero dolorum aperiam enim nulla iste maxime corrupti ad illo libero minus.
+            Officewears is an e-commerce web application which can be used by anyone who wants to start an e-commerce business online. He/She can clone this repo, add their products in the database and products page and start selling.
             </p>
           </div>
         </div>
@@ -258,27 +254,14 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <div class="col-md-3">
           <div class="info_form ">
             <h5>
-              Newsletter
+              Github Link
             </h5>
-            <form action="">
-              <input type="email" placeholder="Enter your email">
-              <button>
-                Subscribe
-              </button>
-            </form>
+            
             <div class="social_box">
               <a href="">
-                <i class="fa fa-facebook" aria-hidden="true"></i>
+                <i class="fa fa-github" aria-hidden="true"></i>
               </a>
-              <a href="">
-                <i class="fa fa-twitter" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-instagram" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-youtube" aria-hidden="true"></i>
-              </a>
+              
             </div>
           </div>
         </div>
