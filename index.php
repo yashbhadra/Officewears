@@ -50,18 +50,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <div class="container-fluid">
           <div class="top_nav_container">
             <div class="contact_nav">
-              <a href="">
-                <i class="fa fa-phone" aria-hidden="true"></i>
-                <span>
-                  Call : +01 123455678990
-                </span>
-              </a>
-              <a href="">
-                <i class="fa fa-envelope" aria-hidden="true"></i>
-                <span>
-                  Email : demo@gmail.com
-                </span>
-              </a>
+              
             </div>
             
             <div class="user_option_box">
@@ -133,11 +122,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                       Welcome to our shop
                     </h1>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste quam velit saepe dolorem deserunt quo quidem ad optio.
+                     
                     </p>
-                    <a href="">
-                      Read More
-                    </a>
+                    
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -157,11 +144,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                       Welcome to our shop
                     </h1>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste quam velit saepe dolorem deserunt quo quidem ad optio.
+                      
                     </p>
-                    <a href="">
-                      Read More
-                    </a>
+                    
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -181,11 +166,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                       Welcome to our shop
                     </h1>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste quam velit saepe dolorem deserunt quo quidem ad optio.
+                      
                     </p>
-                    <a href="">
-                      Read More
-                    </a>
+                    
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -304,12 +287,10 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
               </h2>
             </div>
             <p>
-              Totam architecto rem beatae veniam, cum officiis adipisci soluta perspiciatis ipsa, expedita maiores quae accusantium. Animi veniam aperiam, necessitatibus mollitia ipsum id optio ipsa odio ab facilis sit labore officia!
-              Repellat expedita, deserunt eum soluta rem culpa. Aut, necessitatibus cumque. Voluptas consequuntur vitae aperiam animi sint earum, ex unde cupiditate, molestias dolore quos quas possimus eveniet facilis magnam? Vero, dicta.
+            A project by Yash Bhanushali, Shashank Limaye and Pranav Karnth.
+            April 2022.
             </p>
-            <a href="">
-              Read More
-            </a>
+           
           </div>
         </div>
         <div class="col-md-6 px-0">
@@ -343,7 +324,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                 Fast Delivery
               </h5>
               <p>
-                variations of passages of Lorem Ipsum available
+                
               </p>
             </div>
           </div>
@@ -358,7 +339,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                 Free Shiping
               </h5>
               <p>
-                variations of passages of Lorem Ipsum available
+                
               </p>
             </div>
           </div>
@@ -373,7 +354,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                 Best Quality
               </h5>
               <p>
-                variations of passages of Lorem Ipsum available
+                
               </p>
             </div>
           </div>
@@ -406,12 +387,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                     <i class="fa fa-quote-left" aria-hidden="true"></i>
                   </p>
                   <p>
-                    It is a long established fact that a reader will be distracted by the readable content of a page
-                    when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                    distribution of letters, as opposed to using 'Content here, content here', making it lookIt is a
-                    long established fact that a reader will be distracted by the readable content of a page when
-                    looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                    distribution of letters, as opposed to using 'Content here, content here', making it look
+                    Thank you for the product
                   </p>
                 </div>
                 <div class="client-id">
@@ -420,10 +396,10 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                   </div>
                   <div class="name">
                     <h5>
-                      James Dew
+                      Customer
                     </h5>
                     <h6>
-                      Photographer
+                      
                     </h6>
                   </div>
                 </div>
@@ -438,12 +414,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                     <i class="fa fa-quote-left" aria-hidden="true"></i>
                   </p>
                   <p>
-                    It is a long established fact that a reader will be distracted by the readable content of a page
-                    when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                    distribution of letters, as opposed to using 'Content here, content here', making it lookIt is a
-                    long established fact that a reader will be distracted by the readable content of a page when
-                    looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                    distribution of letters, as opposed to using 'Content here, content here', making it look
+                    Thank you for the product.
                   </p>
                 </div>
                 <div class="client-id">
@@ -452,10 +423,10 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                   </div>
                   <div class="name">
                     <h5>
-                      James Dew
+                      Customer
                     </h5>
                     <h6>
-                      Photographer
+                      
                     </h6>
                   </div>
                 </div>
@@ -470,12 +441,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                     <i class="fa fa-quote-left" aria-hidden="true"></i>
                   </p>
                   <p>
-                    It is a long established fact that a reader will be distracted by the readable content of a page
-                    when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                    distribution of letters, as opposed to using 'Content here, content here', making it lookIt is a
-                    long established fact that a reader will be distracted by the readable content of a page when
-                    looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                    distribution of letters, as opposed to using 'Content here, content here', making it look
+                    Thank you for the product.
                   </p>
                 </div>
                 <div class="client-id">
@@ -484,10 +450,10 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                   </div>
                   <div class="name">
                     <h5>
-                      James Dew
+                      Customer
                     </h5>
                     <h6>
-                      Photographer
+                      
                     </h6>
                   </div>
                 </div>
@@ -529,16 +495,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             </h5>
             <p>
               <i class="fa fa-map-marker" aria-hidden="true"></i>
-              Address
+              RMIT
             </p>
-            <p>
-              <i class="fa fa-phone" aria-hidden="true"></i>
-              +01 1234567890
-            </p>
-            <p>
-              <i class="fa fa-envelope" aria-hidden="true"></i>
-              demo@gmail.com
-            </p>
+            
           </div>
         </div>
         <div class="col-md-3">
@@ -547,7 +506,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
               Information
             </h5>
             <p>
-              Eligendi sunt, provident, debitis nemo, facilis cupiditate velit libero dolorum aperiam enim nulla iste maxime corrupti ad illo libero minus.
+            Officewears is an e-commerce web application which can be used by anyone who wants to start an e-commerce business online. He/She can clone this repo, add their products in the database and products page and start selling.
             </p>
           </div>
         </div>
@@ -588,27 +547,14 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <div class="col-md-3">
           <div class="info_form ">
             <h5>
-              Newsletter
+              Github Link
             </h5>
-            <form action="">
-              <input type="email" placeholder="Enter your email">
-              <button>
-                Subscribe
-              </button>
-            </form>
+            
             <div class="social_box">
               <a href="">
-                <i class="fa fa-facebook" aria-hidden="true"></i>
+                <i class="fa fa-github" aria-hidden="true"></i>
               </a>
-              <a href="">
-                <i class="fa fa-twitter" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-instagram" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-youtube" aria-hidden="true"></i>
-              </a>
+              
             </div>
           </div>
         </div>
