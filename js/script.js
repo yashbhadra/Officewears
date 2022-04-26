@@ -1,65 +1,56 @@
-// ************************************************
-// Shopping Cart API
-// ************************************************
 
-var shoppingCart = (function() {
-  // =============================
-  // Private methods and propeties
-  // =============================
+var shoppingBag = (function() {
+
   cart = [];
   
   // Constructor
-  function Item(name, price, count) {
-    this.name = name;
-    this.price = price;
-    this.count = count;
+  function Item(n, p, c) {
+    this.name = n;
+    this.price = p;
+    this.count = c;
   }
   
-  // Save cart
+  // Save to bag
   function saveCart() {
-    sessionStorage.setItem('shoppingCart', JSON.stringify(cart));
+    sessionStorage.setItem('shoppingBag', JSON.stringify(cart));
   }
   
-    // Load cart
-  function loadCart() {
-    cart = JSON.parse(sessionStorage.getItem('shoppingCart'));
+    // Load the bag
+  function loadBag() {
+    cart = JSON.parse(sessionStorage.getItem('shoppingBag'));
   }
-  if (sessionStorage.getItem("shoppingCart") != null) {
-    loadCart();
+  if (sessionStorage.getItem("shoppingBag") != null) {
+    loadBag();
   }
   
-
-  // =============================
-  // Public methods and propeties
-  // =============================
   var obj = {};
   
-  // Add to cart
-  obj.addItemToCart = function(name, price, count) {
+  // Add item to bag
+  obj.addToBag = function(n, p, c) {
     for(var item in cart) {
-      if(cart[item].name === name) {
+      if(cart[item].name === n) {
         cart[item].count ++;
         saveCart();
         return;
       }
     }
-    var item = new Item(name, price, count);
+    var item = new Item(n, p, c);
     cart.push(item);
     saveCart();
   }
-  // Set count from item
-  obj.setCountForItem = function(name, count) {
+  // Count from item in bag
+  obj.setCountForItem = function(n, c) {
     for(var i in cart) {
-      if (cart[i].name === name) {
-        cart[i].count = count;
+      if (cart[i].name === n) {
+        cart[i].count = c;
         break;
       }
     }
   };
-  // Remove item from cart
-  obj.removeItemFromCart = function(name) {
+  // Take out item from bag
+  obj.deleteItemFromBag = function(n) {
       for(var item in cart) {
-        if(cart[item].name === name) {
+        if(cart[item].name === n) {
           cart[item].count --;
           if(cart[item].count === 0) {
             cart.splice(item, 1);
@@ -70,10 +61,10 @@ var shoppingCart = (function() {
     saveCart();
   }
 
-  // Remove all items from cart
-  obj.removeItemFromCartAll = function(name) {
+  // Take out all items from bag
+  obj.deleteItemFromBagAll = function(n) {
     for(var item in cart) {
-      if(cart[item].name === name) {
+      if(cart[item].name === n) {
         cart.splice(item, 1);
         break;
       }
@@ -81,13 +72,13 @@ var shoppingCart = (function() {
     saveCart();
   }
 
-  // Clear cart
+  // Clean bag
   obj.clearCart = function() {
     cart = [];
     saveCart();
   }
 
-  // Count cart 
+  // Count bag 
   obj.totalCount = function() {
     var totalCount = 0;
     for(var item in cart) {
@@ -96,7 +87,7 @@ var shoppingCart = (function() {
     return totalCount;
   }
 
-  // Total cart
+  // Entire total value in bag
   obj.totalCart = function() {
     var totalCart = 0;
     for(var item in cart) {
@@ -105,8 +96,8 @@ var shoppingCart = (function() {
     return Number(totalCart.toFixed(2));
   }
 
-  // List cart
-  obj.listCart = function() {
+  // List bag
+  obj.listBag = function() {
     var cartCopy = [];
     for(i in cart) {
       item = cart[i];
@@ -121,42 +112,29 @@ var shoppingCart = (function() {
     return cartCopy;
   }
 
-  // cart : Array
-  // Item : Object/Class
-  // addItemToCart : Function
-  // removeItemFromCart : Function
-  // removeItemFromCartAll : Function
-  // clearCart : Function
-  // countCart : Function
-  // totalCart : Function
-  // listCart : Function
-  // saveCart : Function
-  // loadCart : Function
   return obj;
 })();
 
 
-// *****************************************
-// Triggers / Events
-// ***************************************** 
-// Add item
+//Events
+
 $('.add-to-cart').click(function(event) {
   event.preventDefault();
   var name = $(this).data('name');
   var price = Number($(this).data('price'));
-  shoppingCart.addItemToCart(name, price, 1);
+  shoppingBag.addToBag(name, price, 1);
   displayCart();
 });
 
-// Clear items
+
 $('.clear-cart').click(function() {
-  shoppingCart.clearCart();
+  shoppingBag.clearCart();
   displayCart();
 });
 
 
 function displayCart() {
-  var cartArray = shoppingCart.listCart();
+  var cartArray = shoppingBag.listBag();
   var output = "";
   for(var i in cartArray) {
     output += "<tr>"
@@ -171,43 +149,41 @@ function displayCart() {
       +  "</tr>";
   }
   $('.show-cart').html(output);
-  $('.total-cart').html(shoppingCart.totalCart());
-  $('.total-count').html(shoppingCart.totalCount());
+  $('.total-cart').html(shoppingBag.totalCart());
+  $('.total-count').html(shoppingBag.totalCount());
 }
 
 // Delete item button
 
 $('.show-cart').on("click", ".delete-item", function(event) {
   var name = $(this).data('name')
-  shoppingCart.removeItemFromCartAll(name);
+  shoppingBag.deleteItemFromBagAll(name);
   displayCart();
 })
 
 
-// -1
+
 $('.show-cart').on("click", ".minus-item", function(event) {
   var name = $(this).data('name')
-  shoppingCart.removeItemFromCart(name);
-  displayCart();
-})
-// +1
-$('.show-cart').on("click", ".plus-item", function(event) {
-  var name = $(this).data('name')
-  shoppingCart.addItemToCart(name);
+  shoppingBag.deleteItemFromBag(name);
   displayCart();
 })
 
-// Item count input
+$('.show-cart').on("click", ".plus-item", function(event) {
+  var name = $(this).data('name')
+  shoppingBag.addToBag(name);
+  displayCart();
+})
+
 $('.show-cart').on("change", ".item-count", function(event) {
    var name = $(this).data('name');
    var count = Number($(this).val());
-  shoppingCart.setCountForItem(name, count);
+  shoppingBag.setCountForItem(name, count);
   displayCart();
 });
 
 $('.order-now').click(function() {
-  cart = JSON.parse(sessionStorage.getItem('shoppingCart'));
-  //$.post("./cart.php",{cart:cart});
+  cart = JSON.parse(sessionStorage.getItem('shoppingBag'));
 var sendData = function() {
   $.post('./storecart.php', {
     data: cart
@@ -215,7 +191,7 @@ var sendData = function() {
     //console.log(response);
     alert("Order placed successfully")
     window.location.href = "http://localhost/Officewears/index.php";
-    shoppingCart.clearCart();
+    shoppingBag.clearCart();
   });
 
   
