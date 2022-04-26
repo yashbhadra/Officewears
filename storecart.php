@@ -10,7 +10,7 @@
 
 
         foreach($cart as $item){
-            $total_amount = $total_amount + $item["price"];
+            $total_amount = $total_amount + ($item["price"]*$item["count"]);
 
         }
 
