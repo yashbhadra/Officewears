@@ -148,7 +148,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
  <div class="card-body">
    <h4 class="card-title">2. Suit </h4>
    <p class="card-text">Price: $200</p>
-   <a href="#" data-name="Suit-Female" data-price="150" class="add-to-cart btn btn-primary">Add to cart</a>
+   <a href="#" data-name="Suit-Female" data-price="200" class="add-to-cart btn btn-primary">Add to cart</a>
  </div>
 </div>
      </div>
